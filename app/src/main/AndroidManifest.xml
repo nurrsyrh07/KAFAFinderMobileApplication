@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+
     package="com.example.kafafinder">
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES"/>
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
+
 
     <application
         android:allowBackup="true"
@@ -12,33 +19,29 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.KAFAfinder"
-        tools:targetApi="31">
+        tools:targetApi="31" >
 
-        <!-- Launcher Activity to check login status -->
+        <!-- Halaman utama selepas login -->
+        <activity android:name=".MainActivity" android:exported="false" />
+
+        <!-- Halaman profil pengguna -->
+        <activity android:name=".UserProfileActivity" android:exported="false" />
+
+        <!-- Halaman daftar -->
+        <activity android:name=".SignUpActivity" android:exported="false" />
+
+        <activity android:name=".FeedbackActivity" />
+        <!-- Halaman log masuk (launcher) -->
         <activity
-            android:name=".LauncherActivity"
+            android:name=".SignInActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".NoInternetActivity"/>
 
-        <!-- Main screen after login -->
-        <activity
-            android:name=".MainActivity"
-            android:exported="false" />
-
-        <!-- Sign Up Activity -->
-        <activity
-            android:name=".SignUpActivity"
-            android:exported="false" />
-
-        <!-- Login Activity -->
-        <activity
-            android:name=".SignInActivity"
-            android:exported="false" />
 
     </application>
-
 </manifest>

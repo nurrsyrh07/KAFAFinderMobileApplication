@@ -41,7 +41,9 @@ public class SignInActivity extends AppCompatActivity {
                     .addOnCompleteListener(task -> {
                         if (task.isSuccessful()) {
                             Toast.makeText(this, "Login successful!", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(this, MainActivity.class));
+                            startActivity(new Intent(this, UserProfileActivity.class));
+                            finish();
+
                             finish();
                         } else {
                             Toast.makeText(this, "Login failed: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
